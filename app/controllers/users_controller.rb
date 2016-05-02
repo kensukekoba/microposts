@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:show, :edit, :update, :destory]
+  before_action :user_check, only: [:edit, :update, :destroy]
   
   def show
     @user = User.find(params[:id])
+#    @current_user ||= User.find_by(id: session[:user_id])
   end
   
   def new
@@ -12,8 +15,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "Welcome to the Sample App!"
-      redirect_to @user
+      flash[:success] = "Welcome to the Sample App! Please log in your account!"
+      redirect_to login_url
     else
       render 'new'
     end
@@ -42,11 +45,20 @@ class UsersController < ApplicationController
   private
   
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :address, :hobby)
   end  
   
   def set_user
-    @user = User.find(params[:id])
+      @user = User.find(params[:id])
   end  
   
+  def user_check
+    @user = User.find(params[:id])
+    if @user == @current_user
+    else
+      flash[:danger] = "指定したページにはアクセスできません"
+      redirect_to root_path
+    end
+
+  end
 end
