@@ -54,11 +54,9 @@ class UsersController < ApplicationController
   
   def user_check
     @user = User.find(params[:id])
-    if @user == @current_user
-    else
-      flash[:danger] = "指定したページにはアクセスできません"
+    if @user != current_user 
       redirect_to root_path
+      flash[:danger] = "指定したページにはアクセスできません"
     end
-
   end
 end

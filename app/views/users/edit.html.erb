@@ -11,22 +11,22 @@
             <%= render 'shared/error_messages', object: f.object %>
             
             <%= f.label :name %>
-            <%= f.text_field :name %>
+            <%= f.text_field :name, class: 'form-control' %>
             
             <%= f.label :email %>
-            <%= f.email_field :email %>
+            <%= f.email_field :email, class: 'form-control' %>
             
             <%= f.label :address %>
-            <%= f.text_field :address %>
+            <%= f.text_field :address, class: 'form-control' %>
 
             <%= f.label :hobby %>
-            <%= f.text_field :hobby %>
+            <%= f.text_field :hobby, class: 'form-control' %>
             
             <%= f.label :password %>
-            <%= f.password_field :password %>
+            <%= f.password_field :password, class: 'form-control' %>
             
             <%= f.label :password_confirmation, "Confirmation" %>
-            <%= f.password_field :password_confirmation %>
+            <%= f.password_field :password_confirmation, class: 'form-control' %>
             
             <%= f.submit class: "btn btn-large btn-primary" %>
         <% end %>
@@ -37,5 +37,5 @@
 </div>
 
 <div class="col-md-6 col-md-offset-3">
-<%= link_to "アカウント削除" , @user , method: :delete, data: { confirm: '削除してもよろしいですか？'} %>
+<%= link_to "アカウント削除はこちら" , @user , method: :delete, data: { confirm: '削除してもよろしいですか？'} %>
 </div>
