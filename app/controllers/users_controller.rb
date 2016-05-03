@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-#    @current_user ||= User.find_by(id: session[:user_id])
+    @microposts = @user.microposts.order(created_at: :desc)
   end
   
   def new
