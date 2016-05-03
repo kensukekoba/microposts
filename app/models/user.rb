@@ -8,5 +8,9 @@ class User < ActiveRecord::Base
         format: { with: VALID_EMAIL_REGEX },
         uniqueness: { case_sensitive: false }
     has_secure_password
+    validates :address,
+        length: { maximum: 30 }
+    validates :hobby,
+        length: { maximum: 30 }
     has_many :microposts
 end

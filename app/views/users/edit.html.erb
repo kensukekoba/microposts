@@ -1,4 +1,9 @@
-<h1>Sign up</h1>
+<h1>
+    <%= gravatar_for @user %>
+    <%= @user.name %>
+</h1>
+
+<h4>Edit your prorile</h4>
 
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
@@ -11,13 +16,26 @@
             <%= f.label :email %>
             <%= f.email_field :email, class: 'form-control' %>
             
+            <%= f.label :address %>
+            <%= f.text_field :address, class: 'form-control' %>
+
+            <%= f.label :hobby %>
+            <%= f.text_field :hobby, class: 'form-control' %>
+            
             <%= f.label :password %>
             <%= f.password_field :password, class: 'form-control' %>
             
             <%= f.label :password_confirmation, "Confirmation" %>
             <%= f.password_field :password_confirmation, class: 'form-control' %>
             
-            <%= f.submit "Create new account", class: "btn btn-large btn-primary" %>
+            <%= f.submit class: "btn btn-large btn-primary" %>
         <% end %>
+            
+
+        
     </div>
+</div>
+
+<div class="col-md-6 col-md-offset-3">
+<%= link_to "アカウント削除はこちら" , @user , method: :delete, data: { confirm: '削除してもよろしいですか？'} %>
 </div>
