@@ -196,26 +196,40 @@ span.picture {
 
 /* follow-list */
 
-.follow_lists {
+.follow_list {
   list-style: none;
   padding: 0;
+  
   li {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
   }
-  .user {
-    margin-top: 5em;
-    padding-top: 0;
-  }
-  img {
-      display: block;
-      padding: 5px 0;
-  }
   
+
   .gravatar {
     float: left;
     margin-right: 10px;
     margin-top: 5px;
   }
+  
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+    font-weight: bold;
+  }
+  .content {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  
+  img {
+      display: block;
+
+  }
+  
+  .no-margin{
+    margin: 0;
+  }
+  
 }
 
